@@ -12,6 +12,8 @@
 
 *Add here a description of the project explaining at high level what the project is about.*
 
+<b>Note:</b>  visio is in design folder 
+
 ### Goals
 
 *Describe the project goals in a bullet point list:*

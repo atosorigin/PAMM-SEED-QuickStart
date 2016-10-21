@@ -15,7 +15,6 @@ target/
 testsetup/logs
 testsetup/target
 test-e2e-results
-/design
 /run.bat
 /TEST Server.lnk
 /WEBDRIVER.bat
