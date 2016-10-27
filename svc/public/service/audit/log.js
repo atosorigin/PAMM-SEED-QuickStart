@@ -14,7 +14,7 @@ angular.module("pamm").decorator("$log", ["$delegate", "$injector", function ($d
         if (auditEnabled) {
             $injector.get("dal").http.POST("/audit", {
                 level: level,
-                message: message
+                message: message.toString()
             });
         }
     };
