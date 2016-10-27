@@ -1,18 +1,13 @@
-## *[Project Reference here]* - *[Project Name here]*
-
-- [Software Architecture](/docs/software-architecture.md)
-- [Technology Architecture](/docs/technology-architecture.md) - *[High Level Design](/docs/high-level.md)*
-- [Information Architecture](/docs/information-architecture.md)
-- [Test Plan & Feature Catalogue](/docs/test-plan.md)
-- [Appendix - DDU Dev Process](/docs/dev-process.md)
+## *[Project Reference here]*
+- [Overview](#overview)
+- [Goals](#goals)
+- [Drivers](#drivers)
+- [Project Information](#project-information)
 
 # Overview #
-
-### Overview
-
 *Add here a description of the project explaining at high level what the project is about.*
 
-<b>Note:</b>  visio is in design folder 
+*<b>Note:</b>  visio and graphml diagrams are provided in design folder if you require changes to suit your project*
 
 ### Goals
 
@@ -30,16 +25,29 @@
 - Driver 2
 - Driver 3
 
-### Project Information
+#Project Information#
 
 *Include key project information, project milestones, links to project documentation, contacts.*
 
-###### Milestones:
+##### Milestones:
 Delivery Date: *[dd/mm/yyyy]*
 
+#### Documentation
 
-Team and Contacts
--
+- [Software Architecture](/docs/software-architecture.md)
+- [Technology Architecture](/docs/technology-architecture.md) - *[High Level Design](/docs/high-level.md)*
+- [Information Architecture](/docs/information-architecture.md)
+- [Test Plan & Feature Catalogue](/docs/test-plan.md)
+- [Appendix A - DDU Dev Process](/docs/dev-process.md)
+
+### Risks and Assumptions:
+*Describes any risks or assumption - link to new page if required*
+<table>
+<tr><th>Date</th><th>Description</th><th>Impact</th><th>Resolution</th></tr>
+<tr><td>TBA</td><td>TBA</td><td>TBA</td><td>TBA</td></tr>
+</table>
+
+###Team and Contacts
 <table>
 <tr><th>Name</th><th>email</th><th>Role</th></tr>
 <tr><td>TBA</td><td>tbar@atos.net</td><td>Delivery Manager</td></tr>
@@ -52,3 +60,5 @@ Team and Contacts
 <tr><td>TBA</td><td>tba@atos.net</td><td>Developer</td></tr>
 <tr><td>TBA</td><td>tba@atos.net</td><td>Developer</td></tr>
 </table>
+
+

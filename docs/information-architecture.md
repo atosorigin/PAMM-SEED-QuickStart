@@ -1,7 +1,22 @@
-DDU-087 - Information Architecture
-=
+## *[Project Reference here]* - Information Architecture
 [Back to Read Me](../readme.md)
-<br/><br/>
 
-See
-[https://sp.myatos.net/si/UKI/tp/digital/Pages/default.aspx?RootFolder=%2Fsi%2FUKI%2Ftp%2FDigital%2FDocuments%2F087%20%2D%20MS%20Career%20Dialogue&FolderCTID=0x01200038F42456FD0A7F4DA94FADF13DD52BC7&View={4520A324-81E8-41EE-ADBC-6F72212AF788}]()
+- [User Journeys](#user-journeys)
+- [Features Catalogue <b>*provide link to RTC or Trello*</b>](#)
+- [Site Navigation](#site-navigation)
+- [Data Model](#data-model)
+
+###User Journeys
+*Describe the sequence of tasks performed by the personas. This should include workflow diagrams that illustrate the process flow and a link to the personas documentation*
+
+![](./img/user-journey-example.png)
+
+###Site Navigation
+
+*Describe the structure of site pages and the associated navigation and partnerships between the pages. This should include the navigation diagrams*
+
+![](./img/navigation-example.png)
+
+###Data Model
+*Describe the data entities, their attribute*
+![](./img/data-model-example.png)
