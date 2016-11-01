@@ -24,6 +24,6 @@ public class AuditOperation {
             LOG.error(logMessage);
         }
 
-        return new ServiceResult(ServiceResult.Status.SUCCESS);
+        return new ServiceResult(ServiceResult.Status.SUCCESS, "Error Logged");
     }
 }

@@ -14,27 +14,27 @@ public class SecuredAction extends Action.Simple {
     @Inject
     private UserAuthenticator authenticator;
 
-    private final String tokenType;
-    private final String role;
+    private final Token.Type tokenType;
+    private final Principal.Role role;
 
     public SecuredAction() {
         role = null;
-        tokenType = Token.Type.ACCESS.toString();
+        tokenType = Token.Type.ACCESS;
     }
 
     public SecuredAction(Principal.Role role) {
-        this.role = role.toString();
-        tokenType = Token.Type.ACCESS.toString();
+        this.role = role;
+        tokenType = Token.Type.ACCESS;
     }
 
     public SecuredAction(Principal.Role role, Token.Type tokenType) {
-        this.role = role.toString();
-        this.tokenType = tokenType.toString();
+        this.role = role;
+        this.tokenType = tokenType;
     }
 
     public SecuredAction(Token.Type tokenType) {
         this.role = null;
-        this.tokenType = tokenType.toString();
+        this.tokenType = tokenType;
     }
 
     public F.Promise<Result> call(final Http.Context ctx) throws Throwable {
@@ -50,9 +50,9 @@ public class SecuredAction extends Action.Simple {
             return F.Promise.pure(Results.unauthorized("Invalid Credentials"));
         } else if (principal.getTokenStatus() == Token.Status.EXPIRED) {
             return F.Promise.pure(Results.unauthorized("Token Expired"));
-        } else if (!principal.getClaims().get("type").equals(tokenType)) {
+        } else if (!principal.getType().equals(tokenType)) {
             return F.Promise.pure(Results.unauthorized("Invalid Credentials"));
-        } else if (role != null && !principal.getClaims().get("role").equals(role)) {
+        } else if (role != null && !principal.getRole().equals(role)) {
             return F.Promise.pure(Results.unauthorized("Invalid Credentials"));
         } else {
             ctx.args.put(Principal.class.getName(), principal);

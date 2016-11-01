@@ -36,24 +36,28 @@ angular.module("pamm").decorator("$log", ["$delegate", "$injector", function ($d
     };
 
     $delegate.warn = function (message) {
-        warn("[WARN] " + message);
-        logToServer(level.WARN, message);
+        var errorMsg = "[" + $injector.get('$state').current.name + "]::" + message;
+        warn("[WARN] " + errorMsg);
+        logToServer(level.WARN, errorMsg);
     };
 
     $delegate.error = function (message) {
-        error("[ERROR] " + message);
-        logToServer(level.ERROR, message);
+        var errorMsg = "[" + $injector.get('$state').current.name + "]::" + message;
+        error("[ERROR] " +  errorMsg);
+        logToServer(level.ERROR, errorMsg);
     };
 
     $delegate.severe = function (message) {
-        error("[SEVERE] " + message);
-        logToServer(level.SEVERE, message);
+        var errorMsg = "[" + $injector.get('$state').current.name + "]::" + message;
+        error("[SEVERE] " + errorMsg);
+        logToServer(level.SEVERE, errorMsg);
     };
 
     $delegate.debug = function (message) {
-        debug("[DEBUG] " + message);
+        var errorMsg = "[" + $injector.get('$state').current.name + "]::" + message;
+        debug("[DEBUG] " + errorMsg);
     };
 
-    $delegate.info("Audit: added logging");
+    $delegate.info("Audit: Enabled Logging");
     return $delegate;
 }]);

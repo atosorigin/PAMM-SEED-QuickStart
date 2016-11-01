@@ -46,26 +46,26 @@ public class UserAuthenticator {
         final Date issueDate = new Date();
 
         return Jwts.builder()
-                .setId(randomKeyGenerator.generate())
-                .setSubject(user.getId().toString())
-                .setIssuedAt(issueDate)
-                .setExpiration(DateUtils.addHours(issueDate, validFor))
-                .signWith(SignatureAlgorithm.HS256, TextCodec.BASE64.encode(getSecretKey()))
-                .claim("role", user.getRole().toString())
-                .claim("type", type.toString())
-                .claim("id", user.getId().toString())
-                .claim("forename", user.getForename())
-                .claim("surname", user.getSurname())
-                .claim("email", user.getEmail())
-                .claim("phone", user.getPhone())
-                .compact();
+            .setId(randomKeyGenerator.generate())
+            .setSubject(user.getId().toString())
+            .setIssuedAt(issueDate)
+            .setExpiration(DateUtils.addHours(issueDate, validFor))
+            .signWith(SignatureAlgorithm.HS256, TextCodec.BASE64.encode(getSecretKey()))
+            .claim(Principal.ClaimProperties.ROLE, user.getRole().toString())
+            .claim(Principal.ClaimProperties.TYPE, type.toString())
+            .claim(Principal.ClaimProperties.ID, user.getId().toString())
+            .claim(Principal.ClaimProperties.FORENAME, user.getForename())
+            .claim(Principal.ClaimProperties.SURNAME, user.getSurname())
+            .claim(Principal.ClaimProperties.EMAIL, user.getEmail())
+            .claim(Principal.ClaimProperties.PHONE, user.getPhone())
+            .compact();
     }
 
     public Principal validateToken(final String token) {
         try {
             final Claims claims = Jwts.parser()
-                    .setSigningKey(TextCodec.BASE64.encode(getSecretKey()))
-                    .parseClaimsJws(token).getBody();
+                .setSigningKey(TextCodec.BASE64.encode(getSecretKey()))
+                .parseClaimsJws(token).getBody();
             return new Principal(token, Token.Status.VALID, claims);
         } catch (ExpiredJwtException expiredJwtException) {
             return new Principal(token, Token.Status.EXPIRED);
@@ -76,8 +76,8 @@ public class UserAuthenticator {
 
     public Claims parseToken(String token) {
         final Claims claims = Jwts.parser()
-                .setSigningKey(TextCodec.BASE64.encode(getSecretKey()))
-                .parseClaimsJws(token).getBody();
+            .setSigningKey(TextCodec.BASE64.encode(getSecretKey()))
+            .parseClaimsJws(token).getBody();
         return claims;
     }
 
