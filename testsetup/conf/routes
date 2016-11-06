@@ -2,14 +2,10 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-GET        /update/:scriptName                           controllers.SQLExecutionController.update(scriptName : String)
-GET        /query/:scriptName                            controllers.SQLExecutionController.query(scriptName : String)
-
-GET        /create/course/:category/:course              controllers.CourseSetupController.createCourse(category: String, course: String)
-GET        /delete/category/:category              controllers.CourseSetupController.deleteCategory(category: String)
-GET        /delete/course/:category/:course        controllers.CourseSetupController.deleteCourse(category: String, course: String)
+POST        /update                    controllers.SQLExecutionController.update()
+GET         /query/:scriptName         controllers.SQLExecutionController.query(scriptName : String)
 
 # GET     /execute-file/:id         controllers.FileExecutionController.execute(id : Long)
 
 # Map static resources from the /public folder to the /assets URL path
-GET        /assets/*file                                 controllers.Assets.versioned(path="/public", file: Asset)
+GET         /assets/*file              controllers.Assets.versioned(path="/public", file: Asset)
