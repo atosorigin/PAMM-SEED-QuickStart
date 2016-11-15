@@ -58,5 +58,21 @@ var $$dialog = {
                 }
             }
         })
+    },
+
+    question: function (confirmMessage, okButtonLabel, cancelButtonLabel, callback) {
+        return BootstrapDialog.confirm({
+            message: $("<div><i class='fa fa-info fa-3x'></i>" + confirmMessage + "</div>"),
+            type: BootstrapDialog.TYPE_INFO,
+            closable: false,
+            btnCancelLabel: cancelButtonLabel,
+            btnOKLabel: okButtonLabel,
+            btnOKClass: 'btn-info',
+            callback: function (ok) {
+                if (ok) {
+                    callback();
+                }
+            }
+        })
     }
 };

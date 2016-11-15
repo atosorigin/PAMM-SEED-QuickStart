@@ -15,7 +15,8 @@ module.exports = (function () {
                 },
                 body: data
             }, function (error, response, body) {
-                if (error) {
+                if (error || !data) {
+                    console.error("\n[ERROR] DBServiceCaller:: Cannot read " + script + "\n");
                     deferred.reject(error);
                 } else {
                     deferred.fulfill(body);
@@ -26,18 +27,18 @@ module.exports = (function () {
         return deferred;
     };
 
-    function SetupServiceCaller() {
+    function DBServiceCaller() {
     }
 
-    SetupServiceCaller.prototype.update = function (script) {
+    DBServiceCaller.prototype.update = function (script) {
         var pathUrl = "http://localhost:9001/update";
         return executeSql(script, pathUrl);
     };
 
-    SetupServiceCaller.prototype.query = function (script) {
+    DBServiceCaller.prototype.query = function (script) {
         var pathUrl = "http://localhost:9001/query";
         return executeSql(script, pathUrl);
     };
 
-    return SetupServiceCaller;
+    return DBServiceCaller;
 })();

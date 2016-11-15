@@ -19,3 +19,4 @@ test-e2e-results
 /TEST Server.lnk
 /WEBDRIVER.bat
 /demo
+/svc/test/report/e2e/*.json

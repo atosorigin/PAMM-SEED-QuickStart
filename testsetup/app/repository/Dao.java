@@ -25,7 +25,7 @@ public class Dao {
 
             return SUCCESS;
         } catch (Exception e) {
-            LOG.error("Error executing update SQL", e);
+            LOG.error("Error executing update SQL: " + script, e);
             return ERROR;
         }
     }
@@ -33,9 +33,10 @@ public class Dao {
     public final String executeQuery(final String script) {
         try {
             final String sql = script.replaceAll("(\\r|\\n)", " ");
-            return emp.getEntityManager().createNativeQuery(sql).getSingleResult().toString();
+            emp.getEntityManager().createNativeQuery(sql).getSingleResult();
+            return SUCCESS;
         } catch (Exception e) {
-            LOG.error("Error executing update SQL", e);
+            LOG.error("Error executing query SQL: \n\n" + script, e);
             return ERROR;
         }
     }

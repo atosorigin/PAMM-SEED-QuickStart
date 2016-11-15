@@ -4,6 +4,8 @@ Feature: Login
   So I am authorized to use the application
 
   Scenario: Login With Correct Details
-    Given I am on the login view at the start
+    Given The user is registered
+    And I am on the login view at the start
     Given I login with valid credentials
     Then I see the home page
+

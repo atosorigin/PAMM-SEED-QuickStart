@@ -31,12 +31,11 @@ public class SQLExecutionController extends Controller {
     }
 
     @Transactional
-    public Result query(String testScriptName) {
+    public Result query() {
         try {
-            logger.info("executing query script: " + testScriptName);
-            return ok(dao.executeQuery(testScriptName));
+            return ok(dao.executeQuery(request().body().asText()));
         } catch (Exception e) {
-            logger.info("Exception executing query - " + e.getMessage());
+            logger.info("Exception executing query - " + e);
             return internalServerError(e.getMessage());
         }
 
