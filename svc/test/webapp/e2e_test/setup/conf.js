@@ -25,8 +25,9 @@ config = {
         browser.driver.manage().window().setPosition(0, 0);
         browser.driver.manage().window().setSize(1280, 1080);
         global.EC = protractor.ExpectedConditions;
-        global.DBServiceCaller = new require("./db-service-caller.js");
-        global.DialogPage = new require("./dialog.page.js");
+        global.DBServiceCaller = require("./db-service-caller.js");
+        global.DialogPage = require("./dialog.page.js");
+        global.NavigationPage = require("./navigation.page.js");
 
         chai = require("chai");
         chaiAsPromised = require("chai-as-promised");

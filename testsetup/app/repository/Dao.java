@@ -3,7 +3,9 @@ package repository;
 import play.Logger;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Dao {
     public static final String SUCCESS = "SUCCESS";
@@ -40,4 +42,29 @@ public class Dao {
             return ERROR;
         }
     }
+
+    public final List<List<String>> executeAdvancedQuery(final String script) {
+        try {
+            final String sql = script.replaceAll("(\\r|\\n)", " ");
+            final List<Object[]> queryResult = emp.getEntityManager().createNativeQuery(sql).getResultList();
+
+            final List<List<String>> result = new ArrayList<>();
+            for (Object row : queryResult) {
+                final List<String> rowResult = new ArrayList<>();
+                if (row.getClass().isArray()) {
+                    for (Object field : (Object[]) row) {
+                        rowResult.add(field != null ? field.toString() : "");
+                    }
+                } else {
+                    rowResult.add(row.toString());
+                }
+                result.add(rowResult);
+            }
+            return result;
+        } catch (Exception e) {
+            LOG.error("Error executing query SQL: \n\n" + script, e);
+            throw e;
+        }
+    }
 }
+

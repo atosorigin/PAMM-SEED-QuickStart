@@ -1,17 +1,17 @@
 "use strict";
 
 module.exports = (function () {
-    var request = require('request');
-    var fs = require('fs');
+    var request = require("request");
+    var fs = require("fs");
     var executeSql = function (script, pathUrl) {
         var deferred = protractor.promise.defer();
 
         fs.readFile(script, "utf-8", function (err, data) {
             request({
                 url: pathUrl,
-                method: 'POST',
+                method: "POST",
                 headers: {
-                    'Content-Type': 'text/plain'
+                    "Content-Type": "text/plain"
                 },
                 body: data
             }, function (error, response, body) {
@@ -23,7 +23,6 @@ module.exports = (function () {
                 }
             });
         });
-
         return deferred;
     };
 
@@ -37,6 +36,11 @@ module.exports = (function () {
 
     DBServiceCaller.prototype.query = function (script) {
         var pathUrl = "http://localhost:9001/query";
+        return executeSql(script, pathUrl);
+    };
+
+    DBServiceCaller.prototype.advancedQuery = function (script) {
+        var pathUrl = "http://localhost:9001/query/advanced";
         return executeSql(script, pathUrl);
     };
 

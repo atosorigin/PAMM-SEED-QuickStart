@@ -1,12 +1,12 @@
 "use strict";
 module.exports = function loginTest() {
     var DBServiceCaller = require("./db-service-caller.js");
-    var LoginPage = require("./login.page.js");
+    var LoginPage = require("../feature/login/login.page.js");
     var db = new DBServiceCaller();
     var login = new LoginPage;
     var loginPath = __dirname + "/../feature/login/";
     var test = this;
-    var testData = require("./login.data.json");
+    var testData = require("../feature/login/login.data.json");
 
     test.setDefaultTimeout(60000);
 
