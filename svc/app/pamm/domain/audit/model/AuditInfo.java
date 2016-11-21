@@ -1,6 +1,6 @@
-package pamm.infrastructure.audit.model;
+package pamm.domain.audit.model;
 
-import pamm.infrastructure.audit.service.AuditOperation;
+import pamm.domain.audit.service.AuditOperation;
 
 public class AuditInfo {
 

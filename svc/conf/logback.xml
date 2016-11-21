@@ -65,7 +65,7 @@
         <appender-ref ref="STDOUT"/>
     </logger>
 
-    <logger name="pamm.infrastructure.audit.service" additivity="false">
+    <logger name="pamm.domain.audit.service" additivity="false">
         <appender-ref ref="AUDIT"/>
     </logger>
 

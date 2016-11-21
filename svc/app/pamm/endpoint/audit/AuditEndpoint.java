@@ -1,13 +1,14 @@
-package pamm.infrastructure.audit.endpoint;
+package pamm.endpoint.audit;
 
-    import com.google.inject.Inject;
-    import pamm.endpoint.ResourceEndpoint;
-    import pamm.endpoint.SecuredAction;
-    import pamm.infrastructure.audit.service.AuditOperation;
-    import play.Logger;
-    import play.db.jpa.Transactional;
-    import play.mvc.Result;
-    import play.mvc.With;
+import pamm.endpoint.ResourceEndpoint;
+import pamm.endpoint.SecuredAction;
+import pamm.domain.audit.service.AuditOperation;
+import play.Logger;
+import play.db.jpa.Transactional;
+import play.mvc.Result;
+import play.mvc.With;
+
+import javax.inject.Inject;
 
 @With(SecuredAction.class)
 public class AuditEndpoint extends ResourceEndpoint {
@@ -22,7 +23,7 @@ public class AuditEndpoint extends ResourceEndpoint {
 
     @Transactional
     public Result log() {
-        final String email = (String)getUserPrincipal().getClaims().get("email");
+        final String email = (String) getUserPrincipal().getClaims().get("email");
         return response(auditOperation.execute(request().body().asJson(), email));
     }
 }

@@ -1,15 +1,15 @@
 CREATE TABLE user (
   id                 BIGINT(20)  NOT NULL AUTO_INCREMENT,
-  email              VARCHAR(255),
-  forename           VARCHAR(50),
-  surname            VARCHAR(50),
-  password           VARCHAR(255),
+  email              VARCHAR(255) NOT NULL ,
+  forename           VARCHAR(50) NOT NULL ,
+  surname            VARCHAR(50) NOT NULL ,
+  password           VARCHAR(255) NOT NULL ,
   job_title          VARCHAR(20),
   base_site          VARCHAR(20),
   phone              VARCHAR(20),
-  activation_date    DATE,
+  activation_date    TIMESTAMP,
   failed_login_count INTEGER     NOT NULL DEFAULT 0,
-  last_access        TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  last_access        TIMESTAMP,
   role               VARCHAR(10) NOT NULL,
   PRIMARY KEY (id)
 );
