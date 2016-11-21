@@ -16,7 +16,7 @@
         </encoder>
     </appender>
 
-    <appender name="AUDIT" class="ch.qos.logback.core.RollingFileAppender">
+    <appender name="AUDIT" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${application.home}/logs/audit.log</file>
         <encoder>
             <pattern>%date - %message%n%xException</pattern>
