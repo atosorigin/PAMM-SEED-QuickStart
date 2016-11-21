@@ -1,4 +1,4 @@
-npm -g inst{
+{
   "name": "protractor-cucumber-PAMM",
   "version": "0.1.0",
   "scripts": {
