@@ -44,10 +44,10 @@ public class RequestResetPasswordOperation {
             final String verificationCode = authenticator.parseToken(token).getId().substring(0, 8);
 
             if (role.equals(Principal.Role.USER)) {
-                emailService.sendEmail(user.getEmail(), "Atos Learning Anywhere - Password Reset",
+                emailService.sendEmail(user.getEmail(), "Atos [Your Project] - Password Reset",
                         views.html.mailtemplates.userPasswordChange.render(user, requestUtil.getBaseUrl(), token, verificationCode).toString());
             } else {
-                emailService.sendEmail(user.getEmail(), "Atos Learning Anywhere - Password Reset",
+                emailService.sendEmail(user.getEmail(), "Atos [Your Project] - Password Reset",
                         views.html.mailtemplates.adminPasswordChange.render(user, requestUtil.getBaseUrl(), token, verificationCode).toString());
             }
 

@@ -66,7 +66,7 @@ public class RegisterUserOperation {
         repository.set(user);
 
         final String token = authenticator.generateJwtTokenForUser(user, Token.Type.ACTIVATE);
-        emailService.sendEmail(user.getEmail(), "Welcome to Atos Learn Anywhere Admin Portal. Please activate your account",
+        emailService.sendEmail(user.getEmail(), "Welcome to Atos [Your Project] User Portal. Please activate your account",
                 views.html.mailtemplates.userActivation.render(user, requestUtil.getBaseUrl(), token).toString());
 
         return new ServiceResult(jsonRequest);

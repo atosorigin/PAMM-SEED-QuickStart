@@ -1,6 +1,6 @@
 import Lib._
 
-lazy val root = (project in file("."))
+lazy val pamm = (project in file("."))
   .aggregate(testsetup, svc)
   .settings(libraryDependencies ++= Seq(
     jdbc
