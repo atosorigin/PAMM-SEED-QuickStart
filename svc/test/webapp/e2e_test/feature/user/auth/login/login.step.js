@@ -11,6 +11,9 @@ module.exports = function loginTest() {
     test.Given("The user is registered",
         function (next) {
             db.query(__dirname + "/check-test-user-exist.sql").then(function (result) {
+
+                console.log("+++++++++++" + result);
+
                 if (result === "SUCCESS") {
                     db.update(__dirname + "/setup-test-user.sql").then(function () {
                         next();

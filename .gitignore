@@ -20,3 +20,4 @@ test-e2e-results
 /WEBDRIVER.bat
 /demo
 /svc/test/report/e2e/*.json
+/project/project
