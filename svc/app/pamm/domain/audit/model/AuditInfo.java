@@ -11,7 +11,7 @@ public class AuditInfo {
         return level;
     }
 
-    public void setLevel(AuditOperation.LEVEL level) {
+    public void setLevel(final AuditOperation.LEVEL level) {
         this.level = level;
     }
 

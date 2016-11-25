@@ -1,8 +1,8 @@
 package pamm.endpoint.audit;
 
+import pamm.domain.audit.service.AuditOperation;
 import pamm.endpoint.ResourceEndpoint;
 import pamm.endpoint.SecuredAction;
-import pamm.domain.audit.service.AuditOperation;
 import play.Logger;
 import play.db.jpa.Transactional;
 import play.mvc.Result;
@@ -17,7 +17,7 @@ public class AuditEndpoint extends ResourceEndpoint {
     private final AuditOperation auditOperation;
 
     @Inject
-    public AuditEndpoint(AuditOperation auditService) {
+    public AuditEndpoint(final AuditOperation auditService) {
         this.auditOperation = auditService;
     }
 
