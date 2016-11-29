@@ -15,7 +15,6 @@ object Lib {
   val mysqlconn     = "mysql"                       %   "mysql-connector-java"    % Version.MYSQLCONN
   val cucumberJUnit = "info.cukes"                  %   "cucumber-junit"          % Version.CUCUMBER
   val cucumberGuice = "info.cukes"                  %   "cucumber-guice"          % Version.CUCUMBER
-  val dbunit        = "org.dbunit"                  %   "dbunit"                  % Version.DBUNIT
   val junit         = "junit"                       %   "junit"                   % Version.JUNIT
   val scalaCompiler = "org.scala-lang"              %   "scala-compiler"          % Version.SCALA
   val scalaReflect  = "org.scala-lang"              %   "scala-reflect"           % Version.SCALA
@@ -31,6 +30,4 @@ object Lib {
   val commonsIO     = "commons-io"                  %   "commons-io"              % Version.COMMONS_IO
   val playMailer    = "com.typesafe.play"           %   "play-mailer_2.11"        % Version.PLAYMAILER
   val jjwt          = "io.jsonwebtoken"             %   "jjwt"                    % Version.JJWT
-  val httpclient    = "org.apache.httpcomponents"   %   "httpclient"              % Version.HTTPCLIENT
-  val httpcore      = "org.apache.httpcomponents"   %   "httpcore"                % Version.HTTPCORE
 }

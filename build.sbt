@@ -3,7 +3,6 @@ import Lib._
 lazy val pamm = (project in file("."))
   .aggregate(testsetup, svc)
   .settings(libraryDependencies ++= Seq(
-    jdbc
   ))
 
 lazy val svc = (project in file("svc"))
@@ -29,7 +28,6 @@ lazy val svc = (project in file("svc"))
     javaJpa,
     cache,
     javaWs,
-    jdbc,
     filters,
     mysqlconn,
     commonsIO,

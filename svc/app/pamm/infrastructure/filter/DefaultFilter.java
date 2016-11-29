@@ -1,9 +1,9 @@
 package pamm.infrastructure.filter;
 
-import play.api.mvc.EssentialFilter;
-import play.filters.headers.SecurityHeadersFilter;
-import play.http.HttpFilters;
 import play.filters.gzip.GzipFilter;
+import play.filters.headers.SecurityHeadersFilter;
+import play.mvc.EssentialFilter;
+import play.http.HttpFilters;
 import javax.inject.Inject;
 
 public class DefaultFilter implements HttpFilters{
@@ -21,8 +21,8 @@ public class DefaultFilter implements HttpFilters{
     @Override
     public EssentialFilter[] filters() {
         return new EssentialFilter[] {
-                gzip,
-                securityHeadersFilter
+                gzip.asJava(),
+                securityHeadersFilter.asJava()
         };
     }
 

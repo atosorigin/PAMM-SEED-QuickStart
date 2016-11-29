@@ -10,6 +10,8 @@ import play.mvc.Http;
 import play.mvc.Result;
 import play.mvc.Results;
 
+import java.util.concurrent.CompletionStage;
+
 public class SecuredAction extends Action.Simple {
     @Inject
     private UserAuthenticator authenticator;
@@ -38,8 +40,10 @@ public class SecuredAction extends Action.Simple {
         this.tokenType = tokenType;
     }
 
-    public F.Promise<Result> call(final Http.Context ctx) throws Throwable {
+    @Override
+    public CompletionStage<Result> call(Http.Context ctx) {
         final String token = getTokenFromHeader(ctx);
+
 
         if (token == null) {
             return F.Promise.pure(Results.unauthorized("No Credentials"));
@@ -60,6 +64,7 @@ public class SecuredAction extends Action.Simple {
             return delegate.call(ctx);
         }
     }
+
 
     private String getTokenFromHeader(final Http.Context ctx) {
         final String[] authTokenHeaderValues = ctx.request().headers().get(Http.HeaderNames.AUTHORIZATION);
