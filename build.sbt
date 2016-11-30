@@ -18,7 +18,9 @@ lazy val svc = (project in file("svc"))
     case PathList("javax", "servlet", xs@_*) => MergeStrategy.last
     case PathList("javax", "transaction", xs@_*) => MergeStrategy.last
     case PathList("javax", "annotation", xs@_*) => MergeStrategy.last
+    case PathList("javax", "el", xs@_*) => MergeStrategy.last
     case PathList("org", "apache", xs@_*) => MergeStrategy.last
+    case x if x.endsWith("io.netty.versions.properties") => MergeStrategy.first
     case x =>
       val oldStrategy = (assemblyMergeStrategy in assembly).value
       oldStrategy(x)
@@ -48,7 +50,9 @@ lazy val testsetup = (project in file("testsetup"))
     case PathList("javax", "servlet", xs@_*) => MergeStrategy.last
     case PathList("javax", "transaction", xs@_*) => MergeStrategy.last
     case PathList("javax", "annotation", xs@_*) => MergeStrategy.last
+    case PathList("javax", "el", xs@_*) => MergeStrategy.last
     case PathList("org", "apache", xs@_*) => MergeStrategy.last
+    case x if x.endsWith("io.netty.versions.properties") => MergeStrategy.first
     case x =>
       val oldStrategy = (assemblyMergeStrategy in assembly).value
       oldStrategy(x)
