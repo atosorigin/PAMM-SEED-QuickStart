@@ -6,22 +6,28 @@ module.exports = (function () {
     var executeSql = function (script, pathUrl) {
         var deferred = protractor.promise.defer();
 
-        fs.readFile(script, "utf-8", function (err, data) {
-            request({
-                url: pathUrl,
-                method: "POST",
-                headers: {
-                    "Content-Type": "text/plain"
-                },
-                body: data
-            }, function (error, response, body) {
-                if (error || !data) {
-                    console.error("\n[ERROR] DBServiceCaller:: Cannot read " + script + "\n");
-                    deferred.reject(error);
-                } else {
-                    deferred.fulfill(body);
-                }
-            });
+        fs.readFile(script, "utf-8", function (readError, data) {
+            if (readError || !data) {
+                console.error("\n[ERROR] DBServiceCaller:: Cannot read " + script + " because of: " + readError + "\n");
+            } else {
+                request({
+                    url: pathUrl,
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "text/plain"
+                    },
+                    body: data
+                }, function (error, response, body) {
+                    if (error) {
+                        console.error("\n[ERROR] DBServiceCaller:: Cannot send " + script + " to " + pathUrl + " because of: " + error + "\n");
+                        console.error("response=" + data + "\n");
+                        console.error("body=" + data + "\n");
+                        deferred.reject(error);
+                    } else {
+                        deferred.fulfill(body);
+                    }
+                });
+            }
         });
         return deferred;
     };
