@@ -1,1 +1,1 @@
-SELECT * FROM user WHERE email = 'test.user@atos.net';
+SELECT * FROM user WHERE email = 'test.user@atos.net' AND role = 'USER';
