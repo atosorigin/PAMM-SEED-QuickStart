@@ -1,22 +1,22 @@
-Feature: Login
-  As a user
+Feature: Admin Login
+  As a admin
   I want my credentials to be recognised
   So I am authorized to use the application
 
   Scenario: At start up
-    Given The user is registered
-    And I am on the login view at the start
-    Then There are no error messages on the page
+    Given the admin is registered
+    And the admin is on the admin login page
+    Then There are no error messages on the admin login page
 
   Scenario:Login With no credentials
-    Given I try to login without entering any credentials
-    Then I stay at the login view and I see an error for missing credentials
+    Given the admin tries to login without entering any credentials
+    Then the admin stay at the login view and see an error for missing credentials
 
   Scenario:Login With Incorrect Details
-    Given I login with invalid credentials
-    Then I stay at the login view and I see an error for invalid credentials
+    Given admin login with invalid credentials
+    Then admin stay at the login view and see an error for invalid credentials
 
   Scenario: Login With Correct Details
-    Given I login with valid credentials
-    Then I see the home page
+    Given admin login with valid credentials
+    Then admin sees the home page
 

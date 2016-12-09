@@ -5,7 +5,7 @@ config = {
         browserName: "chrome"
     },
 
-    cucumberOpts : {
+    cucumberOpts: {
         format: "pretty",
         require: []
     },
@@ -16,14 +16,17 @@ config = {
     params: {
         profile: "local",
         testMode: "single",
-        reportPath: __dirname + "/../../../report/e2e/"
+        reportPath: __dirname + "/../../../report/e2e/",
+        userLoginFeaturePath: __dirname + "/../feature/user/auth/login/",
+        adminLoginFeaturePath: __dirname + "/../feature/admin/auth/login/",
+        setupPath: __dirname + "/"
     },
 
     specs: [],
 
     onPrepare: function () {
-        browser.driver.manage().window().setPosition(3841, 100);
-        browser.driver.manage().window().setSize(1280, 800);
+        browser.driver.manage().window().setPosition(0, 0);
+        browser.driver.manage().window().setSize(1280, 1080);
         global.EC = protractor.ExpectedConditions;
         global.DBServiceCaller = require("./db-service-caller.js");
         global.DialogPage = require("./dialog.page.js");

@@ -1,22 +1,22 @@
-Feature: Login
+Feature: User Login
   As a user
   I want my credentials to be recognised
   So I am authorized to use the application
 
   Scenario: At start up
-    Given The user is registered
-    And I am on the login view at the start
-    Then There are no error messages on the page
+    Given the user is registered
+    And the user is on the login view at the start
+    Then there are no error messages on the user login page
 
   Scenario:Login With no credentials
-    Given I try to login without entering any credentials
-    Then I stay at the login view and I see an error for missing credentials
+    Given the user tries to login without entering any credentials
+    Then the user stays at the login view and see an error for missing credentials
 
   Scenario:Login With Incorrect Details
-    Given I login with invalid credentials
-    Then I stay at the login view and I see an error for invalid credentials
+    Given the user login with invalid credentials
+    Then the user stays at the login view and see an error for invalid credentials
 
   Scenario: Login With Correct Details
-    Given I login with valid credentials
-    Then I see the home page
+    Given the user login with valid credentials
+    Then the user sees the home page
 
