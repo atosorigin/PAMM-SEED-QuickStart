@@ -6,7 +6,7 @@ Feature: Admin Login
   Scenario: At start up
     Given the admin is registered
     And the admin is on the admin login page
-    Then There are no error messages on the admin login page
+    Then there are no error messages on the admin login page
 
   Scenario:Login With no credentials
     Given the admin tries to login without entering any credentials

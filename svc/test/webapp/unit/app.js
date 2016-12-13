@@ -1,0 +1,1 @@
+angular.module('pamm', ["ui.router", "ngMessages"]);

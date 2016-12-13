@@ -17,17 +17,18 @@ module.exports = (function () {
     };
 
     LoginPage.prototype.fillInDetails = function (username, password) {
-        this.usernameField.clear();
-        this.passwordField.clear();
+        var dialogPage = new DialogPage();
+        dialogPage.waitForDialogToClose();
 
-        return this.usernameField.sendKeys(username) && this.passwordField.sendKeys(password);
+        this.usernameField.clear().sendKeys(username);
+        return this.passwordField.clear().sendKeys(password);
     };
 
     LoginPage.prototype.login = function () {
         return this.loginButton.click();
     };
 
-    LoginPage.prototype.currentURL = function (){
+    LoginPage.prototype.currentURL = function () {
         return browser.getCurrentUrl();
     };
 

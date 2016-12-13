@@ -29,10 +29,10 @@ module.exports = function loginTest() {
         });
     });
 
-    test.Then("There are no error messages on the admin login page", function (next) {
+    test.Then("there are no error messages on the admin login page", function (next) {
         expect(login.invalidLoginError.isDisplayed()).to.eventually.be.false;
-        expect(login.usernameRequiredError.isPresent()).to.eventually.be.false;
-        expect(login.passwordRequiredError.isPresent()).to.eventually.be.false.and.notify(next);
+        expect(login.usernameRequiredError.isDisplayed()).to.eventually.be.false;
+        expect(login.passwordRequiredError.isDisplayed()).to.eventually.be.false.and.notify(next);
     });
 
 
@@ -43,8 +43,7 @@ module.exports = function loginTest() {
     });
 
     test.Then("the admin stay at the login view and see an error for missing credentials", function (next) {
-        expect(login.currentURL()).to.eventually.equal(browser.baseUrl + testData.loginURL);
-        next();
+        expect(login.currentURL()).to.eventually.equal(browser.baseUrl + testData.loginURL).and.notify(next);
     });
 
     test.Given("admin login with invalid credentials", function (next) {
@@ -56,7 +55,6 @@ module.exports = function loginTest() {
 
     test.Then("admin stay at the login view and see an error for invalid credentials", function (next) {
         expect(login.invalidLoginError.isDisplayed()).to.eventually.be.true.and.notify(next);
-        next();
     });
 
     test.Given("admin login with valid credentials", function (next) {

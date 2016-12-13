@@ -9,7 +9,11 @@ module.exports = (function () {
     }
 
     DialogPage.prototype.waitForDialogToClose = function () {
-        return browser.wait(EC.stalenessOf(this.modalBackdrop), 5000);
+        return browser.wait(function() {
+            return element.all(by.css(".modal-backdrop")).first().isPresent().then(function(present) {
+                return !present;
+            });
+        }, 5000);
     };
 
     DialogPage.prototype.dismissQuestionDialog = function () {
@@ -17,7 +21,7 @@ module.exports = (function () {
         return this.waitForDialogToClose();
     };
 
-    DialogPage.prototype.dismissErrorDialog = function (waitForModelBackDrop) {
+    DialogPage.prototype.dismissErrorDialog = function () {
         this.errorDialogOKButton.click();
         return this.waitForDialogToClose();
     };

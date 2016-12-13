@@ -4,9 +4,11 @@ config.cucumberOpts.require = [
     "feature/**/*.step.js"
 ];
 
-config.specs = [
-    "feature/**/auth/login/*.feature"
-];
+config.suites = {
+    user: "feature/user/**/*.feature",
+    admin: "feature/admin/**/*.feature"
+
+};
 
 config.resultJsonOutputFile = config.params.reportPath + "all-tests.json";
 
