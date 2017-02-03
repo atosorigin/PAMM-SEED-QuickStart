@@ -30,7 +30,7 @@ CREATE TABLE config (
 CREATE TABLE ref_data (
   id               BIGINT(20)  NOT NULL AUTO_INCREMENT,
   category         VARCHAR(50) NOT NULL,
-  prarent_category VARCHAR(50),
+  parent_category VARCHAR(50),
   ref              VARCHAR(50) NOT NULL,
   text_value       VARCHAR(65000),
   number_value     FLOAT,
